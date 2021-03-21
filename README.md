@@ -1,6 +1,6 @@
 # Serial-linux
 A C++ Serial communication library that make easier to access Serial ports on linux device 
-
+Functions available
 <table>
   <tr>
     <th>return type</th>
@@ -51,8 +51,13 @@ A C++ Serial communication library that make easier to access Serial ports on li
     <td>Serial::scanPorts()</td>
     <td>returns List of all ttyACM and ttyUSB ports on device</td>
   </tr>
+  <tr>
+    <td>bool</td>
+    <td>Serial:handshake(std::string)</td>
+    <td>returns true if device handshakes successfully on the currently opened port</td>
+  </tr>
 </table>
-
+>>>>read write methords are under devlopment
 
 
 # Handshake
