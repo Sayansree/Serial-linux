@@ -14,7 +14,7 @@ int main(){
     //example to open a definite Serial port and perform handshake
 	if(s->begin("/dev/ttyUSB0",B2000000)){
 		cout<<"\n  ttyUSB0 Opened Successfully\n";
-        if(!s->handshake("Quantum Ground Station"))
+        if(!s->handshake("handshake text"))
 			cout<<"\n No Device detected\n";
 	    else
             cout<<"\n"<<" handshake successful\n";
@@ -30,6 +30,6 @@ int main(){
 	s->end();
 
 
-    
+
 	return 0;
 }
