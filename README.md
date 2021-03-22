@@ -58,6 +58,7 @@ Functions available
   </tr>
 </table>
 >>>>read write methords are under devlopment
+
 # Opening a PORT
 
 ```C++
@@ -65,7 +66,8 @@ Serial *port = new Serial();
 port->begin("ttyUSB0", B9600);
 ```
 
-#closing a PORT
+# Closing a PORT
+
 ```C++
 port->end();
 ```
