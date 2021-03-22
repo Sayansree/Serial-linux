@@ -1,6 +1,6 @@
 # Serial-linux
 A C++ Serial communication library that make easier to access Serial ports on linux device.
-to use this library `Serial.h` and `Serial.cpp` from `lib` folder 
+to use this library copy the `Serial.h` and `Serial.cpp` headers from `lib` folder to you `include` directory
 
 Functions available
 <table>
@@ -58,7 +58,9 @@ Functions available
     <td>Serial:handshake(std::string)</td>
     <td>returns true if device handshakes successfully on the currently opened port</td>
   </tr>
+  
 </table>
+
 >>>>read write methords are under devlopment
 
 ## Scanning for available PORTs
