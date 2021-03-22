@@ -58,7 +58,17 @@ Functions available
   </tr>
 </table>
 >>>>read write methords are under devlopment
+# Opening a PORT
 
+```C++
+Serial *port = new Serial();
+port->begin("ttyUSB0", B9600);
+```
+
+#closing a PORT
+```C++
+port->end();
+```
 
 # Handshake
 after opening a serial COM port the driver listens for response from the device if the responce matches the required handshake text we say a successful handshake is performed
@@ -75,7 +85,7 @@ Example on device side for handshake
 if(!port->handshake("handshake text"))
   cout<<"\n Handshake failed\n";
 else
-  cout<<"\n handshake successful\n";
+  cout<<"\n Handshake successful\n";
 }
 ```
 Note: before performing a handshake a port must be open
