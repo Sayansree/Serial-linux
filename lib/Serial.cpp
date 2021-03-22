@@ -70,6 +70,13 @@ ssize_t Serial::readBytes(void* buf,size_t bytes){
 ssize_t Serial::writeBytes(void* buf,size_t bytes){
 	return write(fd,buf,bytes);
 }
+bool Serial::print(std::string str){
+	writeBytes(&str,str.length());
+}
+bool Serial::println(std::string str){
+	str+="\n";
+	writeBytes(&str,str.length());
+}
 std::string Serial::exec(const char* cmd) {
     std::array<char, 128> buffer;
     std::string result;

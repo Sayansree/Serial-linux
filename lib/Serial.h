@@ -20,6 +20,9 @@ public:
   void flushIO();
   ssize_t readBytes(void*, size_t);
   ssize_t writeBytes(void*, size_t);
+  bool print(std::string);
+  bool println(std::string);
+  std::string readLine();
   std::string autoConnect(std::string, speed_t);
   std::vector <std::string> scanPorts();
   bool handshake(std::string);
