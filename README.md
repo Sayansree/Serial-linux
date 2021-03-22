@@ -84,7 +84,9 @@ To test this example sketch on you device make sure you have a Serial Device con
 to test the handshake part make sure and auto connect feature make sure you have flashed microcontroller with the hanshake code
 ```
 git clone https://github.com/Sayansree/Serial-linux.git
-cd build 
+cd Serial-linux
+mkdir build
+cd build
 cmake ..
 make
 ./serialTest
