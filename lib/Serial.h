@@ -18,7 +18,8 @@ public:
   void flushI();
   void flushO();
   void flushIO();
-  //void read();
+  ssize_t readBytes(void*, size_t);
+  ssize_t writeBytes(void*, size_t);
   std::string autoConnect(std::string, speed_t);
   std::vector <std::string> scanPorts();
   bool handshake(std::string);

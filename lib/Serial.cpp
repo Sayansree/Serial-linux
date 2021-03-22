@@ -60,11 +60,16 @@ bool Serial::handshake(std::string HANDSHAKE_REF){
 	int  bytesRead = 0,len = HANDSHAKE_REF.length();
 	char handshake[len];
 	memset(handshake,'\x00',(len+1)*sizeof(char));
-	bytesRead = read(fd,&handshake,len);
+	bytesRead = readBytes(&handshake,len);
 	std::cout << bytesRead << '\n';
 	return bytesRead == len && strcmp(HANDSHAKE_REF.c_str(),handshake) == 0;
 }
-
+ssize_t Serial::readBytes(void* buf,size_t bytes){
+	return read(fd,buf,bytes);
+}
+ssize_t Serial::writeBytes(void* buf,size_t bytes){
+	return write(fd,buf,bytes);
+}
 std::string Serial::exec(const char* cmd) {
     std::array<char, 128> buffer;
     std::string result;
