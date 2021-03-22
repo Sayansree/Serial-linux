@@ -66,16 +66,16 @@ after opening a serial COM port the driver listens for response from the device 
 Example for Microcontroller side code on Arduino boards for Handshake
 ```C++
 void setup() {
- Serial.begin(2e6);
- Serial.println("handshake text");
+  Serial.begin(2e6);
+  Serial.println("handshake text");
 }
 ```
 Example on device side for handshake
 ```C++
- if(!port->handshake("handshake text"))
-			cout<<"\n Handshake failed\n";
- else
-      cout<<"\n handshake successful\n";
+if(!port->handshake("handshake text"))
+  cout<<"\n Handshake failed\n";
+else
+  cout<<"\n handshake successful\n";
 }
 ```
 # Run example code
