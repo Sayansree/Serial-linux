@@ -78,6 +78,7 @@ else
   cout<<"\n handshake successful\n";
 }
 ```
+Note: before performing a handshake a port must be open
 # Run example code
 To test this example sketch on you device make sure you have a Serial Device connected to device 
 to test the handshake part make sure and auto connect feature make sure you have flashed microcontroller with the hanshake code
@@ -88,4 +89,4 @@ cmake ..
 make
 ./serialTest
 ```
-To customise the example code edit example.cpp and rebuild the executable using make again
+To customise the example code edit example.cpp and rebuild the executable using `make` again
