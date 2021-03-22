@@ -58,7 +58,16 @@ Functions available
     <td>Serial:handshake(std::string)</td>
     <td>returns true if device handshakes successfully on the currently opened port</td>
   </tr>
-  
+  <tr>
+    <td>ssize_t</td>
+    <td>Serial:writeBytes(void*, size_t)</td>
+    <td>write a byte array of given size to PORT</td>
+  </tr>
+  <tr>
+    <td>ssize_t</td>
+    <td>Serial:readBytes((void*, size_t)</td>
+    <td>read a byte array of given size from PORT</td>
+  </tr>
 </table>
 
 >>>>read write methords are under devlopment
