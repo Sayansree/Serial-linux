@@ -70,6 +70,14 @@ void setup() {
  Serial.println("handshake text");
 }
 ```
+Example on device side for handshake
+```C++
+ if(!port->handshake("handshake text"))
+			cout<<"\n Handshake failed\n";
+ else
+      cout<<"\n handshake successful\n";
+}
+```
 # Run example code
 To test this example sketch on you device make sure you have a Serial Device connected to device 
 to test the handshake part make sure and auto connect feature make sure you have flashed microcontroller with the hanshake code
