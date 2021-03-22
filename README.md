@@ -71,7 +71,6 @@ port->begin("ttyUSB0", B9600);
 ```C++
 port->end();
 ```
-
 ## Handshake
 after opening a serial COM port the driver listens for response from the device if the responce matches the required handshake text we say a successful handshake is performed
 
@@ -91,6 +90,9 @@ else
 }
 ```
 Note: before performing a handshake a port must be open
+
+## Auto Connect
+when the device supports a handshake, the driver can scan the device on all available ports, if it finds the device successfully it returns the port on which device is available or returns empty string if it cannot find the device
 
 ## Run example code
 
