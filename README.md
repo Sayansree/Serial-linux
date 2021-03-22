@@ -1,5 +1,7 @@
 # Serial-linux
-A C++ Serial communication library that make easier to access Serial ports on linux device 
+A C++ Serial communication library that make easier to access Serial ports on linux device.
+to use this library `Serial.h` and `Serial.cpp` from `lib` folder 
+
 Functions available
 <table>
   <tr>
