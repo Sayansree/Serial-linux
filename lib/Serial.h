@@ -3,7 +3,6 @@
 
 #include <iostream>
 #include <string>
-#include <string.h>
 #include <fcntl.h>  /* File Control Definitions          */
 #include <termios.h>/* POSIX Terminal Control Definitions*/
 #include <vector>
