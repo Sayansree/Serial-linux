@@ -61,6 +61,16 @@ Functions available
 </table>
 >>>>read write methords are under devlopment
 
+## Scanning for available PORTs
+Scanning all the Serial ports (ttyUSB and ttyACM) that are available on the device. scanPorts() returns a list of ports.
+
+```C++
+vector<string> ports=s->scanPorts();
+for(string PORT:ports)
+  cout<<PORT<<endl;
+```
+
+
 ## Opening a PORT
 
 ```C++
