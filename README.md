@@ -59,20 +59,20 @@ Functions available
 </table>
 >>>>read write methords are under devlopment
 
-# Opening a PORT
+## Opening a PORT
 
 ```C++
 Serial *port = new Serial();
 port->begin("ttyUSB0", B9600);
 ```
 
-# Closing a PORT
+## Closing a PORT
 
 ```C++
 port->end();
 ```
 
-# Handshake
+## Handshake
 after opening a serial COM port the driver listens for response from the device if the responce matches the required handshake text we say a successful handshake is performed
 
 Example for Microcontroller side code on Arduino boards for Handshake
@@ -91,7 +91,9 @@ else
 }
 ```
 Note: before performing a handshake a port must be open
-# Run example code
+
+## Run example code
+
 To test this example sketch on you device make sure you have a Serial Device connected to device 
 to test the handshake part make sure and auto connect feature make sure you have flashed microcontroller with the hanshake code
 ```
