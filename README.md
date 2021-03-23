@@ -70,6 +70,16 @@ Functions available
     <td>sets minimum read character</td>
   </tr>
   <tr>
+    <td>void</td>
+    <td>Serial:print(std::string)</td>
+    <td>write string on port</td>
+  </tr>
+  <tr>
+    <td>void</td>
+    <td>Serial:println(std::string)</td>
+    <td>write string with new line on port</td>
+  </tr>
+  <tr>
     <td>ssize_t</td>
     <td>Serial:writeBytes(void*, size_t)</td>
     <td>write a byte array of given size to PORT</td>
