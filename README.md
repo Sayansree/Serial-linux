@@ -59,6 +59,17 @@ Functions available
     <td>returns true if device handshakes successfully on the currently opened port</td>
   </tr>
   <tr>
+    <td>void</td>
+    <td>Serial:setReadTimeout(float)</td>
+    <td>sets read timeout</td>
+  </tr>
+  <tr>
+  <tr>
+    <td>void</td>
+    <td>Serial:setMinReadCharacter(uint8_t)</td>
+    <td>sets minimum read character</td>
+  </tr>
+  <tr>
     <td>ssize_t</td>
     <td>Serial:writeBytes(void*, size_t)</td>
     <td>write a byte array of given size to PORT</td>
