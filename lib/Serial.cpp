@@ -13,7 +13,6 @@ bool Serial::begin(std::string port,speed_t BAUDRATE){
 	if(fd>-1) end();
 	fd = open(port.c_str(),O_RDWR | O_NOCTTY);
 	if(fd ==-1)return false;
-	termios SerialPortSettings;
 	tcgetattr(fd, &SerialPortSettings);
 	cfsetspeed(&SerialPortSettings,BAUDRATE);
 	SerialPortSettings.c_cflag &= ~(PARENB|CSTOPB|CSIZE|CRTSCTS);   // No Parity,stop bits 1, clear data bit mask,Turn off hardware based flow control (RTS/CTS).
@@ -22,7 +21,7 @@ bool Serial::begin(std::string port,speed_t BAUDRATE){
 	SerialPortSettings.c_oflag &= ~(ONLCR | OCRNL);
 	SerialPortSettings.c_lflag &= ~(ICANON | ECHO | ECHOE | ECHONL | ISIG | IEXTEN);
 	SerialPortSettings.c_cc[VMIN]  = 1; /* Read 10 characters */
-	SerialPortSettings.c_cc[VTIME] = 1; //timout
+	SerialPortSettings.c_cc[VTIME] = 1; //timout 100ms (value=timeout in sec*10)
 	tcsetattr(fd,TCSANOW,&SerialPortSettings);
 	PORT=port;
 	return true;
@@ -42,6 +41,14 @@ void Serial::flushO(){
 void Serial::flushIO(){
 	tcflush(fd,TCIOFLUSH);
 }
+void Serial::setReadTimeout(float sec){
+	SerialPortSettings.c_cc[VTIME] = (uint8_t)(sec*10);
+	tcsetattr(fd,TCSANOW,&SerialPortSettings);
+}
+void Serial::setMinReadCharacter(uint8_t size){
+	SerialPortSettings.c_cc[VTIME] = size;
+	tcsetattr(fd,TCSANOW,&SerialPortSettings);
+}
 std::string Serial::autoConnect(std::string HANDSHAKE_REF,speed_t BAUDRATE){
 	std::vector<std::string> ports=scanPorts();
 	for(std::string port:ports){
@@ -49,7 +56,8 @@ std::string Serial::autoConnect(std::string HANDSHAKE_REF,speed_t BAUDRATE){
 		if(handshake(HANDSHAKE_REF)){
 			PORT=port;
 			return port;
-		}
+		}else
+			end();
 	}
 	PORT="";
 	return "";
@@ -60,6 +68,9 @@ bool Serial::handshake(std::string HANDSHAKE_REF){
 	int  bytesRead = 0,len = HANDSHAKE_REF.length();
 	char handshake[len];
 	memset(handshake,'\x00',(len+1)*sizeof(char));
+	SerialPortSettings.c_cc[VMIN]  = len; /* Read 10 characters */
+	SerialPortSettings.c_cc[VTIME] = 25; //timout 2.5s (value=timeout in sec*10)
+	tcsetattr(fd,TCSANOW,&SerialPortSettings);
 	bytesRead = readBytes(&handshake,len);
 	std::cout << bytesRead << '\n';
 	return bytesRead == len && strcmp(HANDSHAKE_REF.c_str(),handshake) == 0;

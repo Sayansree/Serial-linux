@@ -18,6 +18,8 @@ public:
   void flushI();
   void flushO();
   void flushIO();
+  void setReadTimeout(float sec);
+  void setMinReadCharacter(uint8_t size);
   ssize_t readBytes(void*, size_t);
   ssize_t writeBytes(void*, size_t);
   bool print(std::string);
@@ -30,6 +32,7 @@ public:
 private:
   std::string exec(const char*);
   std::string PORT;
+  termios SerialPortSettings;
   int fd;
 };
 
