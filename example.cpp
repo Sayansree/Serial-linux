@@ -1,4 +1,4 @@
-#include "lib/Serial.h" 
+#include "Serial.h" 
 #include <iostream>
 using namespace std;
 int main(){
