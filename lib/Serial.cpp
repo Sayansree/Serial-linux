@@ -64,7 +64,6 @@ std::string Serial::autoConnect(std::string HANDSHAKE_REF,speed_t BAUDRATE){
 }
 bool Serial::handshake(std::string HANDSHAKE_REF){
 	if(fd==-1)return false;
-	HANDSHAKE_REF+="\r\n";
 	int  bytesRead = 0,len = HANDSHAKE_REF.length();
 	char handshake[len];
 	memset(handshake,'\x00',(len+1)*sizeof(char));
@@ -82,11 +81,15 @@ ssize_t Serial::writeBytes(void* buf,size_t bytes){
 	return write(fd,buf,bytes);
 }
 bool Serial::print(std::string str){
-	writeBytes(&str,str.length());
+	int len =str.length()+1;
+	char arr[len];
+	strcpy(arr,str.c_str());
+	std::cout<<arr;
+	writeBytes(&str[0],len-1);
 }
 bool Serial::println(std::string str){
 	str+="\n";
-	writeBytes(&str,str.length());
+	print(str);
 }
 std::string Serial::exec(const char* cmd) {
     std::array<char, 128> buffer;

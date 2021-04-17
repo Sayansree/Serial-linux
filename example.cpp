@@ -25,16 +25,18 @@ int main(){
 
 
 	//Search and connect to any device with the given handshake string at given 
-	std::string responce = s->autoConnect("handshake text",B2000000);
+	std::string responce = s->autoConnect("handshake text\r\n",B2000000);
     cout<<responce<<endl;
+    s->setMinReadCharacter(1);
+    s->setReadTimeout(0.1);
     for(int i=0;i<4;i++){
-    int len=10;
+    int len=12;
     char handshake[len];
-	memset(handshake,'\x00',(len+1)*sizeof(char));
+	int bytesRead;
     s->println("helloworld");
-	int bytesRead = s->readBytes(&handshake,len);
-    cout<<bytesRead<<endl;
-    cout<<handshake<<endl;
+    memset(handshake,'\x00',(len+1)*sizeof(char));
+	bytesRead = s->readBytes(&handshake,len);
+    cout<<"read:"<<bytesRead<<"\t"<<handshake<<endl;
     }
 	cout<<"\nClosed\n";
     s->flushIO();
