@@ -127,7 +127,7 @@ void setup() {
 ```
 Example on device side for handshake
 ```C++
-if(!port->handshake("handshake text"))
+if(!port->handshake("handshake text\r\n"))
   cout<<"\n Handshake failed\n";
 else
   cout<<"\n Handshake successful\n";
@@ -139,7 +139,7 @@ Note: before performing a handshake a port must be open
 when the device supports a handshake, the driver can scan the device on all available ports, if it finds the device successfully it returns the port on which device is available or returns empty string if it cannot find the device.
 Example of auto Connect.
 ```C++
-string response = s->autoConnect("handshake text",B2000000);
+string response = s->autoConnect("handshake text\r\n",B2000000);
 if(response=="")
   cout<<"\n Device not found\n";
 else
