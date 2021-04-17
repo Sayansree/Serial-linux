@@ -1,6 +1,6 @@
 # Serial-linux
 A C++ Serial communication library that make easier to access Serial ports on linux device.
-to use this library copy the `Serial.h` and `Serial.cpp` headers from `lib` folder to you `include` directory
+to use this library copy the `Serial.h` and `Serial.cpp` headers to you `include` directory
 
 Functions available
 <table>
