@@ -86,12 +86,17 @@ Functions available
   </tr>
   <tr>
     <td>ssize_t</td>
-    <td>Serial:readBytes((void*, size_t)</td>
+    <td>Serial:readBytes(void*, size_t)</td>
     <td>read a byte array of given size from PORT</td>
+  </tr>
+  <tr>
+    <td>ssize_t</td>
+    <td>Serial:readBytesUntil(unsigned char, void*, size_t)</td>
+    <td>read to byte array of given size from PORT until the given byte (stop byte) is reached</td>
   </tr>
 </table>
 
->>>>read write methords are under devlopment
+>read write methords are under devlopment 
 
 ## Scanning for available PORTs
 Scanning all the Serial ports (ttyUSB and ttyACM) that are available on the device. scanPorts() returns a list of ports.
