@@ -1,3 +1,8 @@
+/* written by Sayansree Paria
+    email : sayansreeparia@gmail.com
+    github : https://github.com/Sayansree
+    linklin : https://www.linkedin.com/in/sayansreeparia
+*/
 #include "Serial.h"
 
 
