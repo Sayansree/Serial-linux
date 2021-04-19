@@ -78,7 +78,13 @@ ssize_t Serial::readBytes(void* buf,size_t bytes){
 	return read(fd,buf,bytes);
 }
 ssize_t Serial::readBytesUntil(unsigned char eol, void * buf,size_t bytes){
-
+	char ch;
+	int i=0;
+	do{
+		while(readBytes(&ch,1)==0);
+		((char *)buf)[i++]=ch;
+	}while(ch!=eol&&i<bytes);
+	return i;
 }
 std::string Serial::readLine(){
 
