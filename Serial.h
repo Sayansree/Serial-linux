@@ -21,9 +21,10 @@ public:
   void setReadTimeout(float);
   void setMinReadCharacter(uint8_t);
   ssize_t readBytes(void*, size_t);
-  ssize_t writeBytes(void*, size_t);
   bool print(std::string);
   bool println(std::string);
+  ssize_t writeBytes(void*, size_t);
+  ssize_t readBytesUntil(unsigned char, void*, size_t);
   std::string readLine();
   std::string autoConnect(std::string, speed_t);
   std::vector <std::string> scanPorts();
