@@ -155,6 +155,12 @@ if(response=="")
 else
   cout<<"\n Device found on PORT "<<response<<"\n";
 ```
+## Write to port
+writing to port can be established using `writeBytes`, `print` and `println` methords.
+Example of write using `println`.
+```C++
+s->println("hello World!");
+```
 
 ## Run example code
 
