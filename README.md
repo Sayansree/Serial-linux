@@ -94,6 +94,11 @@ Functions available
     <td>Serial:readBytesUntil(unsigned char, void*, size_t)</td>
     <td>read to byte array of given size from PORT until the given byte (stop byte) is reached</td>
   </tr>
+  <tr>
+    <td>std::string</td>
+    <td>Serial:readLine(size_t maxSize=255)</td>
+    <td>read char string from PORT until the end of line '\n' is reached </td>
+  </tr>
 </table>
 
 >read write methords are under devlopment 
