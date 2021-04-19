@@ -30,14 +30,15 @@ int main(){
     s->setMinReadCharacter(1);
     s->setReadTimeout(0.1);
     for(int i=0;i<4;i++){
-        int len=15;
-        char handshake[len];
-        int bytesRead;
         s->println("helloworld");
-        memset(handshake,'\x00',(len+1)*sizeof(char));
+        // int len=15;
+        // char handshake[len];
+        // int bytesRead;
+        //memset(handshake,'\x00',(len+1)*sizeof(char));
         //bytesRead = s->readBytes(&handshake,len);
-        bytesRead = s->readBytesUntil('\n',&handshake,len);
-        cout<<"read:"<<bytesRead<<"\t"<<handshake<<endl;
+        //bytesRead = s->readBytesUntil('\n',&handshake,len);
+        //cout<<"read:"<<bytesRead<<"\t"<<handshake<<endl;
+        cout<<s->readLine();
     }
 	cout<<"\nClosed\n";
     s->flushIO();

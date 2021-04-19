@@ -25,7 +25,7 @@ public:
   bool println(std::string);
   ssize_t writeBytes(void*, size_t);
   ssize_t readBytesUntil(unsigned char, void*, size_t);
-  std::string readLine();
+  std::string readLine(size_t maxSize=255);
   std::string autoConnect(std::string, speed_t);
   std::vector <std::string> scanPorts();
   bool handshake(std::string);
