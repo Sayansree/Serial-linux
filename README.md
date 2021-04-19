@@ -163,6 +163,13 @@ Example of write using `println`.
 s->println("hello World!");
 ```
 
+Example of write using `writeBytes`.
+```C++
+int bytesRead,len=12;
+char bytes[len+1]="hello World!";
+s->writeBytes(&bytes,len);
+```
+
 
 ## Read from PORT
 writing to port can be established using `readBytes`, `readBytesUntil` and `readLine` methords.
