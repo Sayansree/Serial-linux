@@ -76,7 +76,7 @@ bool Serial::handshake(std::string HANDSHAKE_REF){
 	SerialPortSettings.c_cc[VTIME] = 25; //timout 2.5s (value=timeout in sec*10)
 	tcsetattr(fd,TCSANOW,&SerialPortSettings);
 	bytesRead = readBytes(&handshake,len);
-	std::cout << bytesRead << '\n';
+	//std::cout << bytesRead << '\n';
 	return bytesRead == len && strcmp(HANDSHAKE_REF.c_str(),handshake) == 0;
 }
 ssize_t Serial::readBytes(void* buf,size_t bytes){
@@ -125,19 +125,22 @@ std::string Serial::exec(const char* cmd) {
     return result;
 }
 std::vector <std::string> Serial::scanPorts(){
-		std::vector <std::string> portsACM,portsUSB,ports;
-		std::string result= exec("ls /dev/ttyACM[0-9]\n");
+		std::vector <std::string> ports;
+		std::string result= exec("ls /dev/tty* \n");
 		if(result!=""){
-			boost::split(portsACM,result,boost::is_any_of("\n"));
-			portsACM.pop_back();
+			boost::split(ports,result,boost::is_any_of("\n"));
+			ports.pop_back();
 		}
-		result= exec("ls /dev/ttyUSB[0-9]\n");
-		if(result!=""){
-			boost::split(portsUSB,result,boost::is_any_of("\n"));
-			portsUSB.pop_back();
+		int i=0;
+		while (i<ports.size()){
+			std::string port=ports[i];
+			if(port.length()>11){
+				if(port.substr(0,11)=="/dev/ttyACM"||port.substr(0,11)=="/dev/ttyUSB"){
+					i++;
+					continue;
+				}}
+				ports.erase(ports.begin()+i);
 		}
-		ports.insert(ports.begin(),portsACM.begin(),portsACM.end());
-		ports.insert(ports.begin(),portsUSB.begin(),portsUSB.end());
 		return ports;
 }
 

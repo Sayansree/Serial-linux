@@ -13,9 +13,9 @@ int main(){
 	Serial *s=new Serial();
 
     //example to scan all Serial ports on linux machine
-	// vector<std::string> ports=s->scanPorts();
-	// for(std::string s:ports)
-	// 	cout<<s<<endl;
+	vector<std::string> ports=s->scanPorts();
+	for(std::string s:ports)
+		cout<<s<<endl;
 	
 
     // //example to open a definite Serial port and perform handshake
@@ -33,7 +33,7 @@ int main(){
 
 	//Search and connect to any device with the given handshake string at given 
 	std::string responce = s->autoConnect("handshake text\r\n",B2000000);
-    cout<<responce<<endl;
+    cout<<"opened :"<<responce<<endl;
     s->setMinReadCharacter(1);
     s->setReadTimeout(0.1);
     for(int i=0;i<4;i++){
