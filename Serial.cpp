@@ -77,15 +77,17 @@ bool Serial::handshake(std::string HANDSHAKE_REF){
 ssize_t Serial::readBytes(void* buf,size_t bytes){
 	return read(fd,buf,bytes);
 }
+ssize_t Serial::readBytesUntil(unsigned char eol, void * buf,size_t bytes){
+
+}
+std::string Serial::readLine(){
+
+}
 ssize_t Serial::writeBytes(void* buf,size_t bytes){
 	return write(fd,buf,bytes);
 }
 bool Serial::print(std::string str){
-	int len =str.length()+1;
-	char arr[len];
-	strcpy(arr,str.c_str());
-	std::cout<<arr;
-	writeBytes(&str[0],len-1);
+	writeBytes(&str[0],str.length());
 }
 bool Serial::println(std::string str){
 	str+="\n";
