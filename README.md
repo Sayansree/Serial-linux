@@ -157,16 +157,27 @@ else
 ```
 ## Write to PORT
 writing to port can be established using `writeBytes`, `print` and `println` methords.
+
 Example of write using `println`.
 ```C++
 s->println("hello World!");
 ```
 
+
 ## Read from PORT
 writing to port can be established using `readBytes`, `readBytesUntil` and `readLine` methords.
+
 Example of write using `readLine`.
 ```C++
 cout<< s->readLine();
+```
+Example of write using `readBytes`.
+```C++
+int bytesRead,len=15;
+char bytes[len];
+memset(handshake,'\x00',(len+1)*sizeof(char));
+bytesRead = s->readBytes(&bytes,len);
+cout<< bytes <<'\t read bytes:'<< bytesRead>
 ```
 
 ## Run example code
